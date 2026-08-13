@@ -150,7 +150,7 @@ The open-source MIT license remains available. Companies that require contractua
 
 ROOOMTECH provides paid technical support, implementation and integration assistance, upgrade support, security and production-readiness support, SLA options, private builds, and custom development. A standard commercial software license agreement is available.
 
-Contact: `tasuku.yoshioka@rooomtech.com`
+Contact: `support@rooomtech.com`
 
 ## License
 
