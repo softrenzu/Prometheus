@@ -1,0 +1,13 @@
+services:
+  metrics:
+    build: .
+    ports:
+      - "9090:9090"
+    environment:
+      ROOOM_WAL_DIR: /data
+      ROOOM_RETENTION: 720h
+      ROOOM_CARDINALITY_LIMIT: 1000000
+    volumes:
+      - metrics-data:/data
+volumes:
+  metrics-data:
