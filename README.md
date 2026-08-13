@@ -2,7 +2,7 @@
 
 Version: `0.2.0`
 
-**RooomMetrics** is an experimental source-available metrics engine aimed at the gaps that normally require Prometheus plus extra systems: multi-tenancy, cardinality protection, peer replication, distributed reads, and online anomaly detection.
+**RooomMetrics** is an experimental open-source metrics engine aimed at the gaps that normally require Prometheus plus extra systems: multi-tenancy, cardinality protection, peer replication, distributed reads, and online anomaly detection.
 
 It is not a fork of Prometheus. It keeps familiar ingestion/query surfaces where practical while using an independent implementation.
 
@@ -144,12 +144,14 @@ See `config.example.env`.
 9. Query/result cache and cost-based planner.
 10. RBAC, tenant quotas and per-query resource governance.
 
-## Commercial use and support
+## Commercial licensing and support
 
-For `0.2.0` and later, noncommercial use is available under PolyForm Noncommercial 1.0.0. Commercial or production deployment is offered under a separate paid ROOOMTECH commercial license. Paid maintenance, technical support, implementation, integration, upgrade assistance, security support, SLA options, and custom development are available. A standard commercial software license agreement is available.
+The open-source MIT license remains available. Companies that require contractual commercial terms can purchase a separate ROOOMTECH commercial license agreement together with paid maintenance and support.
+
+ROOOMTECH provides paid technical support, implementation and integration assistance, upgrade support, security and production-readiness support, SLA options, private builds, and custom development. A standard commercial software license agreement is available.
 
 Contact: `tasuku.yoshioka@rooomtech.com`
 
 ## License
 
-From `0.2.0`: PolyForm Noncommercial License 1.0.0 or a separate paid commercial license from ROOOMTECH. Earlier versions keep the license terms published with those versions.
+MIT. See `LICENSE`.
