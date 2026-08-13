@@ -11,9 +11,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/softrenzu/Prometheus/internal/api"
-	"github.com/softrenzu/Prometheus/internal/engine"
-	"github.com/softrenzu/Prometheus/internal/scrape"
+	"github.com/softrenzu/RooomMetrics/internal/api"
+	"github.com/softrenzu/RooomMetrics/internal/engine"
+	"github.com/softrenzu/RooomMetrics/internal/scrape"
 )
 
 func envInt(k string, d int) int {
