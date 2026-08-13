@@ -1,0 +1,9 @@
+package engine
+
+import (
+	"errors"
+	"testing"
+)
+func TestStoreCardinalityAndQuery(t *testing.T){s,err:=NewStore(8,2,"");if err!=nil{t.Fatal(err)};base:=int64(1000);for i:=0;i<2;i++{if err:=s.Append(Sample{Tenant:"t",Metric:"cpu",Labels:map[string]string{"host":string(rune('a'+i))},Timestamp:base,Value:float64(i+1)});err!=nil{t.Fatal(err)}};if err:=s.Append(Sample{Tenant:"t",Metric:"cpu",Labels:map[string]string{"host":"c"},Timestamp:base,Value:3});!errors.Is(err,ErrCardinalityLimit){t.Fatalf("want cardinality error, got %v",err)};got:=s.Select("t","cpu",map[string]string{"host":"a"},0,2000);if len(got)!=1||len(got[0].Points)!=1||got[0].Points[0].Value!=1{t.Fatalf("unexpected %+v",got)}}
+func TestQueryParser(t *testing.T){q,err:=ParseQuery(`sum(http_requests_total{method="GET",code="200"})`);if err!=nil{t.Fatal(err)};if q.Func!="sum"||q.Metric!="http_requests_total"||q.Matchers["method"]!="GET"{t.Fatalf("bad query %+v",q)}}
+func TestAnomaly(t *testing.T){s,_:=NewStore(4,100,"");for i:=0;i<30;i++{v:=10.0+float64(i%3)*0.01;_=s.Append(Sample{Tenant:"t",Metric:"latency",Timestamp:int64(i+1),Value:v})};_=s.Append(Sample{Tenant:"t",Metric:"latency",Timestamp:100,Value:100});if len(s.Anomalies("t",10))==0{t.Fatal("expected anomaly")}}
